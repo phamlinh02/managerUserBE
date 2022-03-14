@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.test2.model.Product$ProductEntity">
+        <table name="product" schema="test" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="quantity">
+                <column name="quantity" precision="-1"/>
+            </basic>
+            <basic name="category_id">
+                <column name="category_id" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

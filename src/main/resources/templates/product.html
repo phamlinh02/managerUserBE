@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Product List</title>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="row"> ID </th>
+            <th scope="row"> Name </th>
+            <th scope="row"> Category </th>
+            <th scope="row"> Quantity </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${list.isEmpty()}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="item : ${list}">
+            <td><span th:text="${item.getId()}"> ID </span></td>
+            <td><span th:text="${item.getName()}"> Name </span></td>
+            <td><span th:text="${item.getCategory_id()}"> Category </span></td>
+            <td><span th:text="${item.getQuantity()}"> Quantity </span></td>
+            <td><a th:href="@{/edit/{id} (id= ${item.getId()}) }">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-primary text-white" th:href="@{create}"  >
+        Create
+    </a>
+
+
+</div>
+</body>
+</html>
